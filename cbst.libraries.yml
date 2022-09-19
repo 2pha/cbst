@@ -1,8 +1,6 @@
 global-styling:
   version: 1
   js:
-    #assets/dist/js/popper.min.js: { minified: true }
-    #assets/dist/js/bootstrap.min.js: { minified: true }
     assets/dist/js/script.js: { minified: true }
   css:
     component:
@@ -14,8 +12,6 @@ global-styling:
 dev-global-styling:
   version: 1
   js:
-    #assets/dist/js/popper.min.js: { minified: true }
-    #assets/dist/js/bootstrap.min.js: { minified: true }
     assets/dev/js/script.js: { minified: true }
   css:
     component:
