@@ -1,0 +1,26 @@
+global-styling:
+  version: 1
+  js:
+    #assets/dist/js/popper.min.js: { minified: true }
+    #assets/dist/js/bootstrap.min.js: { minified: true }
+    assets/dist/js/script.js: { minified: true }
+  css:
+    component:
+      assets/dist/css/styles.css: {}
+      #assets/dist/css/print.css: { media: 'print' }
+  dependencies:
+  #- core/jquery
+  - core/drupal
+dev-global-styling:
+  version: 1
+  js:
+    #assets/dist/js/popper.min.js: { minified: true }
+    #assets/dist/js/bootstrap.min.js: { minified: true }
+    assets/dev/js/script.js: { minified: true }
+  css:
+    component:
+      assets/dev/css/styles.css: {}
+      #assets/dev/css/print.css: { media: 'print' }
+  dependencies:
+  #- core/jquery
+  - core/drupal

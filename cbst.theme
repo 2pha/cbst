@@ -1,0 +1,11 @@
+<?php
+
+include 'inc/suggestions.theme';
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function cbst_page_attachments_alter(&$variables) {
+  $dev = getenv('DEV_MODE') === "true";
+  $variables['#attached']['library'][] = $dev ? 'cbst/dev-global-styling' : 'cbst/global-styling';
+}

@@ -1,0 +1,169 @@
+<?php
+
+/**
+ * Theme suggestions.
+ * Uncomment as required.
+ * You will have to rename the functions if you changed the theme name.
+ */
+
+use \Drupal\block\Entity\Block;
+/**
+ * Implements hook_theme_suggestions_region_alter().
+ */
+function cbst_theme_suggestions_region_alter(array &$suggestions, array $variables) {
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    foreach ($suggestions as $sug) {
+      $suggestions[] = $sug . '__' . 'frontpage';
+    }
+  }
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    foreach ($suggestions as $sug) {
+      $suggestions[] = $sug . '__' . $node->bundle();
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+//function cbst_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+//  $element = $variables['element'];
+//
+//  if (isset($element['#view_mode'])) {
+//    $view_mode = isset($element['#ds_view_mode']) ? $element['#ds_view_mode'] : $element['#view_mode'];
+//    foreach ($suggestions as $suggestion) {
+//      $suggestions[] = $suggestion . '__' . $view_mode;
+//    }
+//  }
+//}
+
+/**
+ * Implements hook_theme_suggestions_container_alter().
+ */
+//function cbst_theme_suggestions_container_alter(array &$suggestions, array $variables) {
+//  if (!empty($variables['element']['#view'])) {
+//    /** @var \Drupal\views\Entity\View $view */
+//    $view = $variables['element']['#view'];
+//
+//    $suggestions[] = 'container__' . $view->id() . '__' . $view->current_display;
+//  }
+//}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+//function cbst_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+//
+//  $region = NULL;
+//
+//  if (!empty($variables['elements']['#configuration']['region'])) {
+//    $region = $variables['elements']['#configuration']['region'];
+//  }
+//  elseif (!empty($variables['elements']['#id'])) {
+//    if ($block = Block::load($variables['elements']['#id'])) {
+//      $region = $block->getRegion();
+//    }
+//  }
+//
+//  if ($region) {
+//    $additional = array_map(function ($value) use ($region) {
+//      return preg_replace('/^block/i', 'block__region_' . $region, $value);
+//    }, $suggestions);
+//
+//    array_unshift($additional, 'block__region_' . $region);
+//    $suggestions = array_merge($suggestions, $additional);
+//  }
+//
+//  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] === 'block_content') {
+//
+//    $uuid = $variables['elements']['#derivative_plugin_id'];
+//    $block_content = \Drupal::service('entity.repository')->loadEntityByUuid('block_content', $uuid);
+//
+//    if ($block_content) {
+//
+//      $suggestions[] = 'block__block_content__' . $block_content->bundle();
+//      $suggestions[] = 'block__block_content__' . $block_content->bundle() . '__' . $uuid;
+//
+//    }
+//  }
+//}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+//function cbst_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+//  /** @var \Drupal\views\Entity\View $view */
+//  $view = $variables['view'];
+//
+//  $suggestions[] = 'views_view__' . $view->id();
+//  $suggestions[] = 'views_view__' . $view->id() . '__' . $view->current_display;
+//}
+
+/**
+ * Implements hook_theme_suggestions_views_view_field_alter().
+ */
+//function cbst_theme_suggestions_views_view_field_alter(array &$suggestions, array $variables) {
+//  /** @var \Drupal\views\Entity\View $view */
+//  $view = $variables['view'];
+//
+//  /** @var \Drupal\views\Plugin\views\field\EntityField $field */
+//  $field = $variables['field'];
+//
+//  $suggestions[] = 'views_view_field__' . $view->id();
+//  $suggestions[] = 'views_view_field__' . $view->id() . '__field__' . $field->field;
+//  $suggestions[] = 'views_view_field__' . $view->id() . '__' . $view->current_display;
+//  $suggestions[] = 'views_view_field__' . $view->id() . '__' . $view->current_display . '__field__' . $field->field;
+//}
+
+/**
+ * Implements hook_theme_suggestions_views_exposed_form_alter().
+ */
+//function cbst_theme_suggestions_views_exposed_form_alter(array &$suggestions, array $variables) {
+//  if (isset($variables['form']['#view_id']) && isset($variables['form']['#display_id'])) {
+//    $suggestions[] = 'views_exposed_form__' . $variables['form']['#view_id'] . '_' . $variables['form']['#display_id'];
+//
+//    if (isset($variables['form']['#id'])) {
+//      $id = str_replace('-', '_', $variables['form']['#id']);
+//      $suggestions[] = 'views_exposed_form__id__' . $id;
+//    }
+//  }
+//}
+
+/**
+ * Implements hook_theme_suggestions_form_element().
+ */
+//function cbst_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+//  $suggestions[] = 'form_element__type__' . $variables['element']['#type'];
+//
+//  if (isset($variables['element']['#form_id'])) {
+//    $suggestions[] = 'form_element__form_id__' . $variables['element']['#form_id'];
+//    $suggestions[] = 'form_element__' . $variables['element']['#form_id'] . '__' . $variables['element']['#type'];
+//  }
+//
+//  if (isset($variables['element']['#views_display_id'])) {
+//    $suggestions[] = 'form_element__' . $variables['element']['#form_id'] . '__' . $variables['element']['#views_display_id'];
+//    $suggestions[] = 'form_element__' . $variables['element']['#form_id'] . '__' . $variables['element']['#views_display_id'] . '__' . $variables['element']['#type'];
+//  }
+//}
+
+/**
+ * Implements hook_theme_suggestions_form_element_label().
+ */
+//function cbst_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables) {
+//  if (isset($variables['element']['#form_element_type'])) {
+//    $suggestions[] = 'form_element_label__type__' . $variables['element']['#form_element_type'];
+//  }
+//  if (isset($variables['element']['#form_id'])) {
+//    $suggestions[] = 'form_element_label__form-id__' . $variables['element']['#form_id'];
+//  }
+//  if (isset($variables['element']['#form_element_type']) && isset($variables['element']['#form_id'])) {
+//    $suggestions[] = 'form_element_label__' . $variables['element']['#form_id'] . '__' . $variables['element']['#form_element_type'];
+//  }
+//  if (isset($variables['element']['#views_display_id'])) {
+//    $suggestions[] = 'form_element_label__views_exposed_form__' . $variables['element']['#views_display_id'];
+//  }
+//  if (isset($variables['element']['#views_display_id']) && isset($variables['element']['#form_id'])) {
+//    $suggestions[] = 'form_element_label__views_exposed_form__' . $variables['element']['#views_display_id'] . '__' . $variables['element']['#form_element_type'];
+//  }
+//}
