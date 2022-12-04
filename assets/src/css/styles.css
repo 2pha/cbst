@@ -1,9 +1,4 @@
-@import 'variables.css';
+@import '_variables.css';
+@import '_mixins.css';
+@import '_base.css';
 
-html {
-  box-sizing: border-box;
-}
-
-body {
-
-}

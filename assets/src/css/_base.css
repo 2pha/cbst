@@ -1,0 +1,26 @@
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  color-scheme: dark light;
+}
+
+/*testing again*/
+body {
+  min-height: 100vh;
+  margin: 0px;
+  background: black;
+}
+
+input, textarea, button, select {
+  font: inherit;
+}
+
+
