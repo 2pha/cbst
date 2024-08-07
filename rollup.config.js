@@ -1,19 +1,19 @@
 
 import nodeResolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-  input: 'assets/src/js/script.js',
+  input: 'src/js/script.js',
   output: {
-    file: (production) ? 'assets/dist/js/script.js' : 'assets/dev/js/script.js',
+    file: (production) ? 'js/script.js' : 'js/script.dev.js',
     format: 'iife',
     interop: false,
     globals: {
       Drupal: 'Drupal',
       drupalSettings: 'drupalSettings',
-      jQuery: 'jQuery',
+      $: 'jQuery',
     },
   },
   external : ['Drupal', 'drupalSettings', 'jQuery'],

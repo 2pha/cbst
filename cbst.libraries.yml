@@ -1,25 +1,26 @@
 global-styling:
   version: VERSION
   js:
-    assets/dist/js/script.js: { minified: true }
+    js/script.js: { minified: true }
   css:
     component:
-      assets/dist/css/styles.css: {}
-      #assets/dist/css/print.css: { media: 'print' }
+      css/styles.css: {}
+      #css/print.css: { media: 'print' }
   dependencies:
   #- core/jquery
   - core/drupal
+  - core/once
 dev-global-styling:
   version: VERSION
   js:
-    assets/dev/js/script.js: { minified: true }
+    js/script.dev.js: { minified: true }
   css:
     component:
-      assets/dev/css/styles.css: {}
+      css/styles.dev.css: {}
       #assets/dev/css/print.css: { media: 'print' }
   dependencies:
-  #- core/jquery
   - core/drupal
+  - core/once
 base:
   version: VERSION
   css:

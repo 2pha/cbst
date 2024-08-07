@@ -4,19 +4,19 @@ type: theme
 starterkit: true
 version: VERSION
 libraries:
-  - new/base
-  - new/messages
+  - cbst/base
+  - cbst/messages
   - core/normalize
 libraries-extend:
   user/drupal.user:
-    - new/user
+    - cbst/user
   core/drupal.dropbutton:
-    - new/dropbutton
+    - cbst/dropbutton
   core/drupal.dialog:
-    - new/dialog
+    - cbst/dialog
   file/drupal.file:
-    - new/file
+    - cbst/file
   core/drupal.progress:
-    - new/progress
+    - cbst/progress
 core_version_requirement: ^10
 generator: 'starterkit_theme:10.2.6'

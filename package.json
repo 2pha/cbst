@@ -3,30 +3,18 @@
   "version": "1.0.0",
   "description": "Chris Brown's starter theme.",
   "scripts": {
-    "css:watch": "postcss assets/src/css/styles.css -d assets/dev/css -w",
-    "css:build": "postcss assets/src/css/styles.css -d assets/dist/css --env production",
     "js:watch": "rollup -c -w",
     "js:build": "rollup -c",
-    "build": "npm run css:build && npm run js:build"
+    "css:watch": "sass src/scss/styles.scss css/styles.dev.css -w",
+    "css:build": "sass src/scss/styles.scss css/styles.css --no-source-map",
+    "build": "echo 'do something"
   },
   "author": "Chris Brown",
   "license": "ISC",
-  "devDependencies": {
-    "@rollup/plugin-node-resolve": "^14.1.0",
-    "autoprefixer": "^10.4.11",
-    "cross-env": "^7.0.3",
-    "cssnano": "^5.1.13",
-    "postcss": "^8.4.16",
-    "postcss-cli": "^10.0.0",
-    "postcss-custom-media": "^9.0.1",
-    "postcss-each": "^1.1.0",
-    "postcss-extend": "^1.0.5",
-    "postcss-focus": "^5.0.1",
-    "postcss-import": "^15.0.0",
-    "postcss-mixins": "^9.0.4",
-    "postcss-nested": "^5.0.6",
-    "postcss-preset-env": "^7.8.2",
-    "rollup": "^2.79.0",
-    "rollup-plugin-terser": "^7.0.2"
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^2.79.1",
+    "sass": "^1.77.8"
   }
 }
