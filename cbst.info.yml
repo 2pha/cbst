@@ -1,5 +1,22 @@
 name: cbst
 type: theme
-description: 'Custom theme'
-core_version_requirement: ^9
-base theme: stable9
+'base theme': stable9
+starterkit: true
+version: VERSION
+libraries:
+  - new/base
+  - new/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - new/user
+  core/drupal.dropbutton:
+    - new/dropbutton
+  core/drupal.dialog:
+    - new/dialog
+  file/drupal.file:
+    - new/file
+  core/drupal.progress:
+    - new/progress
+core_version_requirement: ^10
+generator: 'starterkit_theme:10.2.6'
