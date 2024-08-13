@@ -1,6 +1,5 @@
 js/script.dev.js
 css/styles.dev.css
-css/styles.dev.css.map
 node_modules
 *.js.map
 *.css.map

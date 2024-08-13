@@ -11,9 +11,12 @@ import drupalSettings from 'drupalSettings';
 // Just an example
 // Does not need to be in the usual iife as rollup surrounds our code with an iife anyway.
 Drupal.behaviors.cbst = {
+  hasrun: false,
   attach: function(context) {
-    console.log(drupalSettings);
-    console.log('CB was here');
-
+    if (!this.hasrun) { // This makes sure it only runs once.
+      console.log(drupalSettings);
+      console.log('CB was here');
+      this.hasrun = true;
+    }
   },
 };

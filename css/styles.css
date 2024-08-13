@@ -3,4 +3,47 @@
   --clr-secondary: #ff0000;
   --clr-black: #000000;
   --clr-white: #ffffff;
+  --page-max-width: 1200px;
+  --grid-gap: 15px;
+}
+
+.layout-container {
+  max-width: var(--page-max-width);
+  margin: auto;
+}
+
+@media (min-width: 800px) {
+  body main {
+    display: grid;
+    gap: var(--grid-gap);
+  }
+  body main > .layout-sidebar-first {
+    order: 1;
+  }
+  body main > .layout-content {
+    order: 2;
+  }
+  body main > .layout-sidebar-second {
+    order: 3;
+  }
+  body.layout-sidebar-first main {
+    grid-template-columns: 1fr 2fr;
+  }
+  body.layout-two-sidebars main {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  body.layout-sidebar-second main {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

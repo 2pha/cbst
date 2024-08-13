@@ -1,0 +1,39 @@
+//main {
+//  display: grid;
+//}
+
+.layout-container {
+  max-width: var(--page-max-width);
+  margin: auto;
+}
+
+@media (min-width: #{$breakpoint1}) {
+
+  body main {
+    display: grid;
+    gap: var(--grid-gap);
+
+    > .layout-sidebar-first {
+      order: 1;
+    }
+
+    > .layout-content {
+      order: 2;
+    }
+
+    > .layout-sidebar-second {
+      order: 3;
+    }
+  }
+
+  body.layout-sidebar-first main {
+    grid-template-columns: 1fr 2fr;
+  }
+  body.layout-two-sidebars main {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  body.layout-sidebar-second main {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+

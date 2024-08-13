@@ -7,7 +7,7 @@
     "js:build": "rollup -c",
     "css:watch": "sass src/scss/styles.scss css/styles.dev.css -w",
     "css:build": "sass src/scss/styles.scss css/styles.css --no-source-map",
-    "build": "echo 'do something"
+    "build": "npm run js:build && npm run css:build"
   },
   "author": "Chris Brown",
   "license": "ISC",
