@@ -26,9 +26,12 @@ function cbst_preprocess_image_widget(array &$variables) {
  * Implements hook_page_attachments_alter().
  */
 function cbst_page_attachments_alter(&$variables) {
-  //$dev = getenv('DEV_MODE') === "true";
-  $twig_debug_enabled = \Drupal::service('twig')->isDebug();
-  $variables['#attached']['library'][] = $twig_debug_enabled ? 'cbst/dev-global-styling' : 'cbst/global-styling';
+  // Switch to dev library if twig debug is on.
+  if (\Drupal::service('twig')->isDebug()) {
+    $themeName = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+    $css_index = array_search($themeName . '/global-styling', $variables['#attached']['library']);
+    $variables['#attached']['library'][$css_index] = $themeName . '/dev-global-styling';
+  }
 }
 
 /**
